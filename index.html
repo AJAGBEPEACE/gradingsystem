@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="index.css"></head>
+<body class="">
+    
+    <div class="container p-4 col-4 shadow mt-5 ">
+        <div class="row">
+            <h1 class="text-center text-white">Grading system</h1>
+            <p class="text-white text-center fw-bold">Grade yourself from 1-100</p>
+            <div class="form-floating d-flex">
+                <input type="text" placeholder="input your score " id="grade" class="form-control">
+                <label for="" class="ms-2">input your score</label>
+                <button class="btn btn-primary ms-2" onclick="checkGrade()">Check</button>
+            </div>
+            <div class="text-center mt-3 " id="disp">result</div>
+        </div>
+    </div>
+    <audio src="" autoplay></audio>
+    <script>
+        function checkGrade() {
+            var failSound = "fail-trombone-02.mp3"
+            var passSound = "mixkit-ending-show-audience-clapping-478.wav"
+            let empty ='';
+             let audio =  document.querySelector('audio');
+            if ( grade.value >100 ) {
+                disp.innerHTML = "Invalid Input"
+                disp.style.background="red"
+                disp.style.color="white"
+            }
+            else if (grade.value >= 70) {
+                disp.innerHTML = "A Excellent"
+                disp.style.background="green"
+                disp.style.color="white"
+                audio.src =passSound;
+                // passSound.play()
+            }
+            else if (grade.value <= 69 && 60 ) {
+                disp.innerHTML = "B Very good"
+                disp.style.background="blue"
+                disp.style.color="white"
+                audio.src =passSound;
+            } 
+            if (grade.value <= 59) {
+                disp.innerHTML = "C Good"
+                disp.style.background="yellow"
+                disp.style.color="black"
+               audio.src =passSound;
+
+            } 
+            if (grade.value <= 49) {
+               disp.innerHTML = "D Fair"
+               disp.style.background="purple"
+               disp.style.color="white"
+               audio.src =failSound;
+
+           } 
+            if (grade.value <= 39) {
+                disp.innerHTML = "E Poor"
+                disp.style.background="voilet"
+                disp.style.color="white"
+                audio.src =failSound;
+            } 
+            if (grade.value <= 29) {
+                disp.innerHTML = "F Very poor"
+                disp.style.background="red"
+                disp.style.color="white"
+                audio.src =failSound;
+            }
+            if( grade.value < 0 ){
+                disp.innerHTML = "Invalid Input"
+                disp.style.background="red"
+                disp.style.color="white"
+                audio.src =empty;
+
+            }
+            if(grade.value == ""){
+                disp.innerHTML = "Invalid Input"
+                disp.style.background="red"
+                disp.style.color="white"
+                audio.src =empty;
+            }
+        }
+    </script>
+</body>
+</html>
